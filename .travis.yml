@@ -1,3 +1,16 @@
+dist: trusty
+sudo: false
+
 language: node_js
-#cache:
-#    npm: false
+node_js:
+  - '12'
+
+before_install:
+    - sudo apt-get update
+    - sudp apt-get -y upgrade
+
+install:
+  - npm install
+
+script:
+  - npm run test
