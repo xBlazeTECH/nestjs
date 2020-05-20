@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { CreateCatDto } from './dto/create-cat.dto';
-import { Cat } from './interfaces/cat.interface';
+import { Cat } from './classes/cat.class';
 
 @Injectable()
 export class CatsService {
@@ -12,7 +12,19 @@ export class CatsService {
     return createdCat.save();
   }
 
+  async findOne(id: number): Promise<Cat> {
+    return this.catModel.findOne(id).exec();
+  }
+
   async findAll(): Promise<Cat[]> {
     return this.catModel.find().exec();
+  }
+
+  async update(id: number): Promise<Cat> {
+    return this.catModel.update(id).exec();
+  }
+
+  async delete(id: number): Promise<Cat> {
+    return this.catModel.delete(id).exec();
   }
 }
