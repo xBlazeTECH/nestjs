@@ -7,7 +7,7 @@ import {
 } from '@nestjs/swagger';
 import { CreateCatDto } from './dto/create-cat.dto';
 import { CatsService } from './cats.service';
-import { Cat } from './classes/cat.class';
+import { Cat } from './schemas/cat.schema';
 
 @ApiBearerAuth()
 @ApiTags('cats')
